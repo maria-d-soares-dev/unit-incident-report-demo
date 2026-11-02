@@ -8,7 +8,7 @@ This project recreates a fictional global system for reporting extraterrestrial 
 
 The public version is a static frontend demonstration hosted with GitHub Pages.
 
-**Live site:** LINK.
+**Live site:** [LINK](https://maria-d-soares-dev.github.io/unit-incident-report-demo/).
 
 > The public demonstration does not transmit or permanently store completed reports. All transmission behavior is simulated in the browser.
 
