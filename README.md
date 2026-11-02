@@ -12,11 +12,36 @@ The public version is a static frontend demonstration hosted with GitHub Pages.
 
 > The public demonstration does not transmit or permanently store completed reports. All transmission behavior is simulated in the browser.
 
+
 ## Preview
 
-```markdown
-assets/report-form-preview.png
-```
+### Incident Report Form: Dark Theme
+
+![UNIT incident report form in dark theme](assets/dark-theme.png)
+
+### Incident Report Form: Light Theme
+
+![UNIT incident report form in light theme](assets/light-theme.png)
+
+### Responsive Mobile View
+
+![UNIT incident report form on a mobile screen](assets/mobile-view.png)
+
+### Automated Threat Assessment
+
+![UNIT automated threat assessment](assets/threat-assessment.png)
+
+### Report Review
+
+![UNIT report review modal](assets/report-review.png)
+
+### Simulated Report Reference
+
+![UNIT simulated report reference](assets/report-reference-code.png)
+
+### Full-Stack Incident Dashboard
+
+![UNIT local incident dashboard](assets/incident
 
 ## Frontend Features
 
