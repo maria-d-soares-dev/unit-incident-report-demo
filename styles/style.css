@@ -137,9 +137,10 @@ header p:last-child {
    ========================================================== */
 
 .theme-control {
-    position: absolute;
-    top: 16px;
-    right: 20px;
+    position: static;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
 }
 
 .theme-toggle {
@@ -951,11 +952,29 @@ footer p:first-child {
 /* ==========================================================
    TABLET AND MOBILE
    ========================================================== */
+@media (max-width: 1000px) {
+    .theme-control {
+        position: static;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 24px;
+    }
+
+    header {
+        padding: 28px 20px 36px;
+    }
+
+    header h1 {
+        max-width: 760px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
 
 @media (max-width: 700px) {
-    header {
-        padding: 76px 16px 28px;
-    }
+  header {
+    padding: 28px 16px;
+}
 
     header h1 {
         font-size: 1.6rem;
