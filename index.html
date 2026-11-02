@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+            name="description"
+            content="A fictional Earth-wide UNIT extraterrestrial incident report form."
+    >
+
+    <title>UNIT Extraterrestrial Incident Report</title>
+
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    >
+
+    <link
+            rel="stylesheet"
+            href="styles/style.css"
+    >
+
+    <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            defer
+    ></script>
+
+    <script
+            src="scripts/main.js"
+            defer
+    ></script>
+</head>
+
+<body data-theme="dark">
+<header>
+    <div class="theme-control">
+        <button
+                type="button"
+                id="theme-toggle"
+                class="theme-toggle"
+                aria-pressed="false"
+                aria-label="Switch to light theme"
+        >
+                <span id="theme-icon" aria-hidden="true">
+                    ☀
+                </span>
+
+            <span id="theme-text">
+                    Light theme
+                </span>
+        </button>
+    </div>
+
+    <h1>UNIT Extraterrestrial Incident Report</h1>
+
+    <p>
+        Explore this interactive demonstration of a fictional UNIT
+        incident reporting interface.
+    </p>
+
+    <p>
+        This portfolio project does not contact UNIT, emergency
+        services or any real organisation.
+    </p>
+</header>
+
+<main>
+    <div
+            class="alert alert-warning"
+            role="status"
+    >
+        <strong>Portfolio demonstration:</strong>
+        this public version demonstrates the frontend interface only.
+        Completed reports are not transmitted or permanently stored.
+        The private local version includes PHP, PostgreSQL,
+        server-side validation, IP rate limiting and a searchable
+        incident dashboard.
+    </div>
+    <section aria-labelledby="registration-title">
+        <h2 id="registration-title">
+            Classified Incident Registration
+        </h2>
+
+        <div class="draft-controls">
+            <p
+                    id="draft-status"
+                    role="status"
+                    aria-live="polite"
+            >
+                No local draft has been saved.
+            </p>
+
+            <div class="draft-actions">
+                <button
+                        type="button"
+                        id="save-draft"
+                >
+                    Save Draft
+                </button>
+
+                <button
+                        type="button"
+                        id="delete-draft"
+                >
+                    Delete Saved Draft
+                </button>
+            </div>
+        </div>
+
+        <div class="form-progress">
+            <p id="step-status">
+                Step 1 of 5: Witness Identification
+            </p>
+
+            <div
+                    class="progress"
+                    role="progressbar"
+                    aria-label="Report completion progress"
+                    aria-valuemin="1"
+                    aria-valuemax="5"
+                    aria-valuenow="1"
+            >
+                <div
+                        id="progress-bar"
+                        class="progress-bar bg-danger"
+                        style="width: 20%"
+                ></div>
+            </div>
+        </div>
+
+        <form id="incident-form" autocomplete="off">
+            <!-- Step 1 -->
+            <fieldset
+                    class="form-step"
+                    data-step-name="Witness Identification"
+            >
+                <legend>Witness Identification</legend>
+
+                <p>
+                    <label for="full-name">
+                        Full name:
+                    </label>
+
+                    <input
+                            type="text"
+                            id="full-name"
+                            name="fullName"
+                            minlength="3"
+                            maxlength="100"
+                            autocomplete="name"
+                            placeholder="Example: Martha Jones"
+                            required
+                    >
+                </p>
+
+                <p>
+                    <label for="email">
+                        Secure email address:
+                    </label>
+
+                    <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            maxlength="254"
+                            autocomplete="off"
+                            placeholder="agent@example.com"
+                            required
+                    >
+                </p>
+
+                <p>
+                    <label for="phone">
+                        Emergency telephone number:
+                    </label>
+
+                    <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            inputmode="tel"
+                            autocomplete="off"
+                            maxlength="25"
+                            placeholder="+44 20 7946 0958"
+                            aria-describedby="phone-help"
+                            required
+                    >
+
+                    <small
+                            id="phone-help"
+                            class="field-help"
+                    >
+                        Include the country calling code, for example:
+                        +44 20 7946 0958.
+                    </small>
+                </p>
+
+                <p>
+                    <label for="birth-date">
+                        Date of birth:
+                    </label>
+
+                    <input
+                            type="date"
+                            id="birth-date"
+                            name="birthDate"
+                            autocomplete="bday"
+                            required
+                    >
+                </p>
+            </fieldset>
+
+            <!-- Step 2 -->
+            <fieldset
+                    class="form-step"
+                    data-step-name="Incident Classification"
+                    hidden
+            >
+                <legend>Incident Classification</legend>
+
+                <p>
+                    <label for="incident-date">
+                        Date of the incident:
+                    </label>
+
+                    <input
+                            type="date"
+                            id="incident-date"
+                            name="incidentDate"
+                            required
+                    >
+                </p>
+
+                <p>
+                    <label for="incident-type">
+                        Type of incident:
+                    </label>
+
+                    <select
+                            id="incident-type"
+                            name="incidentType"
+                            required
+                    >
+                        <option value="">
+                            Select an incident type
+                        </option>
+
+                        <option value="extraterrestrial">
+                            Extraterrestrial activity
+                        </option>
+
+                        <option value="temporal">
+                            Temporal disturbance
+                        </option>
+
+                        <option value="unknown-technology">
+                            Technology of unknown origin
+                        </option>
+
+                        <option value="unidentified-creature">
+                            Unidentified creature
+                        </option>
+
+                        <option value="missing-person">
+                            Unexplained disappearance
+                        </option>
+
+                        <option value="other">
+                            Other unexplained phenomenon
+                        </option>
+                    </select>
+                </p>
+
+                <div id="missing-person-details" hidden>
+                    <h3>Missing-Person Details</h3>
+
+                    <p>
+                        <label for="missing-people-count">
+                            Number of missing people:
+                        </label>
+
+                        <input
+                                type="number"
+                                id="missing-people-count"
+                                name="missingPeopleCount"
+                                min="1"
+                                max="999"
+                        >
+                    </p>
+
+                    <p>
+                        <label for="last-known-contact">
+                            Last known contact:
+                        </label>
+
+                        <input
+                                type="datetime-local"
+                                id="last-known-contact"
+                                name="lastKnownContact"
+                        >
+                    </p>
+
+                    <p>
+                        <input
+                                type="checkbox"
+                                id="disappearance-witnessed"
+                                name="disappearanceWitnessed"
+                        >
+
+                        <label for="disappearance-witnessed">
+                            The disappearance was directly witnessed
+                        </label>
+                    </p>
+                </div>
+
+                <div id="temporal-details" hidden>
+                    <h3>Temporal Disturbance Details</h3>
+
+                    <p>
+                        <label for="perceived-date">
+                            Date perceived by the witness:
+                        </label>
+
+                        <input
+                                type="date"
+                                id="perceived-date"
+                                name="perceivedDate"
+                        >
+                    </p>
+
+                    <p>
+                        <label for="temporal-displacement">
+                            Estimated temporal displacement:
+                        </label>
+
+                        <input
+                                type="text"
+                                id="temporal-displacement"
+                                name="temporalDisplacement"
+                                maxlength="150"
+                                placeholder="Example: approximately 40 years into the future"
+                        >
+                    </p>
+
+                    <p>
+                        <label for="memory-effects">
+                            Reported memory effects:
+                        </label>
+
+                        <textarea
+                                id="memory-effects"
+                                name="memoryEffects"
+                                rows="5"
+                                maxlength="800"
+                                placeholder="Describe memory loss, conflicting memories or other cognitive effects..."
+                        ></textarea>
+                    </p>
+                </div>
+
+                <p id="threat-level-label">
+                    Threat level:
+                </p>
+
+                <div
+                        role="radiogroup"
+                        aria-labelledby="threat-level-label"
+                >
+                    <p>
+                        <input
+                                type="radio"
+                                id="low-risk"
+                                name="threatLevel"
+                                value="low"
+                                required
+                        >
+
+                        <label for="low-risk">
+                            Low risk
+                        </label>
+                    </p>
+
+                    <p>
+                        <input
+                                type="radio"
+                                id="moderate-risk"
+                                name="threatLevel"
+                                value="moderate"
+                        >
+
+                        <label for="moderate-risk">
+                            Moderate risk
+                        </label>
+                    </p>
+
+                    <p>
+                        <input
+                                type="radio"
+                                id="high-risk"
+                                name="threatLevel"
+                                value="high"
+                        >
+
+                        <label for="high-risk">
+                            High risk
+                        </label>
+                    </p>
+
+                    <p>
+                        <input
+                                type="radio"
+                                id="global-risk"
+                                name="threatLevel"
+                                value="global"
+                        >
+
+                        <label for="global-risk">
+                            Possible global threat
+                        </label>
+                    </p>
+                </div>
+
+                <div id="global-risk-confirmation" hidden>
+                    <p class="security-notice">
+                        <strong>Global threat confirmation:</strong>
+                        Selecting this classification may trigger an
+                        immediate international response.
+                    </p>
+
+                    <p>
+                        <input
+                                type="checkbox"
+                                id="confirm-global-risk"
+                                name="confirmGlobalRisk"
+                        >
+
+                        <label for="confirm-global-risk">
+                            I confirm that the available information may
+                            indicate a global-level threat
+                        </label>
+                    </p>
+                </div>
+            </fieldset>
+
+            <!-- Step 3 -->
+            <fieldset
+                    class="form-step"
+                    data-step-name="Possible Doctor Involvement"
+                    hidden
+            >
+                <legend>Possible Doctor Involvement</legend>
+
+                <p id="doctor-presence-label">
+                    Was the individual known as "the Doctor" present
+                    during the incident?
+                </p>
+
+                <div
+                        role="radiogroup"
+                        aria-labelledby="doctor-presence-label"
+                >
+                    <p>
+                        <input
+                                type="radio"
+                                id="doctor-confirmed"
+                                name="doctorPresence"
+                                value="confirmed"
+                                aria-controls="doctor-details"
+                                required
+                        >
+
+                        <label for="doctor-confirmed">
+                            Yes, the Doctor was positively identified
+                        </label>
+                    </p>
+
+                    <p>
+                        <input
+                                type="radio"
+                                id="doctor-possible"
+                                name="doctorPresence"
+                                value="possible"
+                                aria-controls="doctor-details"
+                        >
+
+                        <label for="doctor-possible">
+                            Possibly, but the identification could not
+                            be confirmed
+                        </label>
+                    </p>
+
+                    <p>
+                        <input
+                                type="radio"
+                                id="doctor-not-observed"
+                                name="doctorPresence"
+                                value="not-observed"
+                                aria-controls="doctor-details"
+                        >
+
+                        <label for="doctor-not-observed">
+                            No, the Doctor was not observed
+                        </label>
+                    </p>
+
+                    <p>
+                        <input
+                                type="radio"
+                                id="doctor-unknown"
+                                name="doctorPresence"
+                                value="unknown"
+                                aria-controls="doctor-details"
+                        >
+
+                        <label for="doctor-unknown">
+                            Unknown
+                        </label>
+                    </p>
+                </div>
+
+                <div id="doctor-details" hidden>
+                    <p>
+                        <label for="previous-doctor-contact">
+                            Have you previously encountered the Doctor?
+                        </label>
+
+                        <select
+                                id="previous-doctor-contact"
+                                name="previousDoctorContact"
+                        >
+                            <option value="">
+                                Select an option
+                            </option>
+
+                            <option value="no-previous-contact">
+                                No previous contact
+                            </option>
+
+                            <option value="one-previous-encounter">
+                                One previous encounter
+                            </option>
+
+                            <option value="multiple-encounters">
+                                Multiple previous encounters
+                            </option>
+
+                            <option value="uncertain-memory">
+                                Uncertain or incomplete memory
+                            </option>
+
+                            <option value="classified">
+                                Information classified
+                            </option>
+                        </select>
+                    </p>
+
+                    <p id="doctor-evidence-label">
+                        Select all relevant observations:
+                    </p>
+
+                    <div
+                            role="group"
+                            aria-labelledby="doctor-evidence-label"
+                    >
+                        <p>
+                            <input
+                                    type="checkbox"
+                                    id="tardis-observed"
+                                    name="doctorEvidence[]"
+                                    value="tardis-observed"
+                            >
+
+                            <label for="tardis-observed">
+                                A blue police box was observed near
+                                the incident
+                            </label>
+                        </p>
+
+                        <p>
+                            <input
+                                    type="checkbox"
+                                    id="tardis-materialisation"
+                                    name="doctorEvidence[]"
+                                    value="tardis-materialisation"
+                            >
+
+                            <label for="tardis-materialisation">
+                                The police box appeared or disappeared
+                                without conventional transportation
+                            </label>
+                        </p>
+
+                        <p>
+                            <input
+                                    type="checkbox"
+                                    id="unusual-mechanical-sound"
+                                    name="doctorEvidence[]"
+                                    value="unusual-mechanical-sound"
+                            >
+
+                            <label for="unusual-mechanical-sound">
+                                An unidentified mechanical sound was heard
+                            </label>
+                        </p>
+
+                        <p>
+                            <input
+                                    type="checkbox"
+                                    id="handheld-device"
+                                    name="doctorEvidence[]"
+                                    value="handheld-device"
+                            >
+
+                            <label for="handheld-device">
+                                The suspected individual carried an
+                                unidentified handheld device
+                            </label>
+                        </p>
+
+                        <p>
+                            <input
+                                    type="checkbox"
+                                    id="companions-observed"
+                                    name="doctorEvidence[]"
+                                    value="companions-observed"
+                            >
+
+                            <label for="companions-observed">
+                                One or more unidentified associates
+                                were present
+                            </label>
+                        </p>
+                    </div>
+
+                    <p>
+                        <label for="doctor-description">
+                            Describe the suspected individual,
+                            associates, vehicle and any instructions
+                            received:
+                        </label>
+
+                        <textarea
+                                id="doctor-description"
+                                name="doctorDescription"
+                                rows="6"
+                                maxlength="1000"
+                                placeholder="Include appearance, behaviour, statements, unusual equipment and details about the blue police box..."
+                        ></textarea>
+                    </p>
+                </div>
+            </fieldset>
+
+            <!-- Step 4 -->
+            <fieldset
+                    class="form-step"
+                    data-step-name="Incident Description"
+                    hidden
+            >
+                <legend>Incident Description</legend>
+
+                <p>
+                    <label for="location">
+                        Location of the incident:
+                    </label>
+
+                    <input
+                            type="text"
+                            id="location"
+                            name="location"
+                            maxlength="150"
+                            placeholder="City, building or approximate location"
+                            required
+                    >
+                </p>
+
+                <p>
+                    <label for="incident-report">
+                        Describe what you witnessed:
+                    </label>
+
+                    <textarea
+                            id="incident-report"
+                            name="incidentReport"
+                            rows="8"
+                            minlength="20"
+                            maxlength="1500"
+                            placeholder="Describe the event, including the time, location and any unusual objects or creatures..."
+                            required
+                    ></textarea>
+                </p>
+
+                <div
+                        class="timeline-editor"
+                        aria-labelledby="timeline-title"
+                >
+                    <h3 id="timeline-title">
+                        Incident Timeline
+                    </h3>
+
+                    <p>
+                        Add important events in chronological order.
+                    </p>
+
+                    <div class="timeline-inputs">
+                        <p>
+                            <label for="timeline-time">
+                                Event time:
+                            </label>
+
+                            <input
+                                    type="time"
+                                    id="timeline-time"
+                            >
+                        </p>
+
+                        <p>
+                            <label for="timeline-description">
+                                Event description:
+                            </label>
+
+                            <input
+                                    type="text"
+                                    id="timeline-description"
+                                    maxlength="250"
+                                    placeholder="Example: A blue police box appeared"
+                            >
+                        </p>
+
+                        <button
+                                type="button"
+                                id="add-timeline-event"
+                        >
+                            Add Timeline Event
+                        </button>
+                    </div>
+
+                    <ol
+                            id="timeline-list"
+                            aria-label="Incident timeline events"
+                    ></ol>
+                </div>
+            </fieldset>
+
+            <!-- Step 5 -->
+            <fieldset
+                    class="form-step"
+                    data-step-name="Evidence and Review"
+                    hidden
+            >
+                <legend>Evidence and Review</legend>
+
+                <p id="available-evidence-label">
+                    Select all available forms of evidence:
+                </p>
+
+                <div
+                        role="group"
+                        aria-labelledby="available-evidence-label"
+                >
+                    <p>
+                        <input
+                                type="checkbox"
+                                id="photographs"
+                                name="evidence[]"
+                                value="photographs"
+                        >
+
+                        <label for="photographs">
+                            Photographs
+                        </label>
+                    </p>
+
+                    <p>
+                        <input
+                                type="checkbox"
+                                id="video-recording"
+                                name="evidence[]"
+                                value="video-recording"
+                                aria-controls="video-details"
+                        >
+
+                        <label for="video-recording">
+                            Video recording
+                        </label>
+                    </p>
+
+                    <p>
+                        <input
+                                type="checkbox"
+                                id="audio-recording"
+                                name="evidence[]"
+                                value="audio-recording"
+                        >
+
+                        <label for="audio-recording">
+                            Audio recording
+                        </label>
+                    </p>
+
+                    <p>
+                        <input
+                                type="checkbox"
+                                id="physical-object"
+                                name="evidence[]"
+                                value="physical-object"
+                                aria-controls="physical-object-details"
+                        >
+
+                        <label for="physical-object">
+                            Unidentified physical object
+                        </label>
+                    </p>
+
+                    <p>
+                        <input
+                                type="checkbox"
+                                id="other-witnesses"
+                                name="evidence[]"
+                                value="other-witnesses"
+                                aria-controls="witness-details"
+                        >
+
+                        <label for="other-witnesses">
+                            Other witnesses
+                        </label>
+                    </p>
+                </div>
+
+                <div id="video-details" hidden>
+                    <h3>Video Recording Details</h3>
+
+                    <p>
+                        <label for="video-duration">
+                            Recording duration in seconds:
+                        </label>
+
+                        <input
+                                type="number"
+                                id="video-duration"
+                                name="videoDuration"
+                                min="1"
+                                max="86400"
+                        >
+                    </p>
+
+                    <p>
+                        <label for="recording-device">
+                            Recording device:
+                        </label>
+
+                        <input
+                                type="text"
+                                id="recording-device"
+                                name="recordingDevice"
+                                maxlength="100"
+                                placeholder="Example: mobile telephone or security camera"
+                        >
+                    </p>
+
+                    <p>
+                        <input
+                                type="checkbox"
+                                id="video-modified"
+                                name="videoModified"
+                        >
+
+                        <label for="video-modified">
+                            The recording may have been edited or modified
+                        </label>
+                    </p>
+                </div>
+
+                <div id="physical-object-details" hidden>
+                    <h3>Physical Object Details</h3>
+
+                    <p>
+                        <input
+                                type="checkbox"
+                                id="object-isolated"
+                                name="objectIsolated"
+                        >
+
+                        <label for="object-isolated">
+                            The object has been isolated from people
+                            and equipment
+                        </label>
+                    </p>
+
+                    <p>
+                        <label for="object-containment">
+                            Current containment method:
+                        </label>
+
+                        <textarea
+                                id="object-containment"
+                                name="objectContainment"
+                                rows="4"
+                                maxlength="600"
+                                placeholder="Describe where and how the object is being contained..."
+                        ></textarea>
+                    </p>
+                </div>
+
+                <div id="witness-details" hidden>
+                    <h3>Additional Witnesses</h3>
+
+                    <p>
+                        <label for="witness-count">
+                            Number of additional witnesses:
+                        </label>
+
+                        <input
+                                type="number"
+                                id="witness-count"
+                                name="witnessCount"
+                                min="1"
+                                max="9999"
+                        >
+                    </p>
+
+                    <p id="witness-contact-label">
+                        Can UNIT contact the additional witnesses?
+                    </p>
+
+                    <div
+                            role="radiogroup"
+                            aria-labelledby="witness-contact-label"
+                    >
+                        <p>
+                            <input
+                                    type="radio"
+                                    id="witness-contact-yes"
+                                    name="witnessContact"
+                                    value="yes"
+                            >
+
+                            <label for="witness-contact-yes">
+                                Yes
+                            </label>
+                        </p>
+
+                        <p>
+                            <input
+                                    type="radio"
+                                    id="witness-contact-no"
+                                    name="witnessContact"
+                                    value="no"
+                            >
+
+                            <label for="witness-contact-no">
+                                No
+                            </label>
+                        </p>
+
+                        <p>
+                            <input
+                                    type="radio"
+                                    id="witness-contact-unknown"
+                                    name="witnessContact"
+                                    value="unknown"
+                            >
+
+                            <label for="witness-contact-unknown">
+                                Unknown
+                            </label>
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                        class="threat-assessment"
+                        aria-labelledby="assessment-title"
+                >
+                    <h3 id="assessment-title">
+                        Automated Threat Assessment
+                    </h3>
+
+                    <dl>
+                        <dt>Selected threat level</dt>
+                        <dd id="selected-threat">
+                            Not provided
+                        </dd>
+
+                        <dt>Suggested threat level</dt>
+                        <dd id="suggested-threat">
+                            Low
+                        </dd>
+
+                        <dt>Calculated score</dt>
+                        <dd id="threat-score">
+                            0
+                        </dd>
+                    </dl>
+
+                    <h4>Assessment factors</h4>
+
+                    <ul id="threat-reasons">
+                        <li>
+                            No scoring factors are currently available.
+                        </li>
+                    </ul>
+                </div>
+
+                <div
+                        class="review-preview"
+                        aria-labelledby="review-preview-title"
+                >
+                    <h3 id="review-preview-title">
+                        Report Preview
+                    </h3>
+
+                    <div id="review-preview-content">
+                        <p>
+                            Complete the form to generate a report preview.
+                        </p>
+                    </div>
+                </div>
+            </fieldset>
+
+            <p class="security-notice">
+                <strong>Security notice:</strong>
+                Submitting false information may interfere with an
+                active UNIT investigation. Verify all details before
+                transmission.
+            </p>
+
+            <p class="privacy-notice">
+                <strong>Frontend demonstration:</strong>
+                do not enter real personal, emergency, classified or
+                confidential information. Completed reports are not sent
+                to a server or permanently stored. Unfinished drafts may be
+                saved only in this browser using local storage.
+            </p>
+
+            <div
+                    id="form-status"
+                    class="alert d-none"
+                    role="status"
+                    aria-live="polite"
+            ></div>
+
+            <div class="form-actions">
+                <button
+                        type="button"
+                        id="previous-step"
+                        hidden
+                >
+                    Previous Step
+                </button>
+
+                <button
+                    type="button"
+                    id="next-step"
+            >
+                Continue to Next Step
+            </button>
+
+                <button
+                        type="button"
+                        id="save-draft-bottom"
+                >
+                    Save Draft
+                </button>
+
+                <button
+                        type="submit"
+                        id="review-report"
+                        hidden
+                >
+                    Review Report
+                </button>
+
+                <button
+                        type="reset"
+                        id="delete-report"
+                >
+                    Delete Unsent Report
+                </button>
+            </div>
+        </form>
+    </section>
+</main>
+
+<!-- Review modal -->
+<div
+        class="modal fade"
+        id="review-modal"
+        tabindex="-1"
+        aria-labelledby="review-modal-title"
+        aria-hidden="true"
+>
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2
+                        class="modal-title fs-5"
+                        id="review-modal-title"
+                >
+                    Review Classified Report
+                </h2>
+
+                <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                ></button>
+            </div>
+
+            <div class="modal-body">
+                <p>
+                    Verify the information below before confirming
+                    transmission.
+                </p>
+
+                <div id="review-content"></div>
+            </div>
+
+            <div class="modal-footer">
+                <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                >
+                    Return to Report
+                </button>
+
+                <button
+                        type="button"
+                        class="btn btn-danger"
+                        id="confirm-transmission"
+                >
+                    Confirm Transmission
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Receipt modal -->
+<div
+        class="modal fade"
+        id="receipt-modal"
+        tabindex="-1"
+        aria-labelledby="receipt-modal-title"
+        aria-hidden="true"
+>
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2
+                        class="modal-title fs-5"
+                        id="receipt-modal-title"
+                >
+                    Report Received
+                </h2>
+
+                <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                ></button>
+            </div>
+
+            <div class="modal-body">
+                <p>
+                    The fictional report was received and stored by the
+                    local training server.
+                </p>
+
+                <p>
+                    <strong>Report reference:</strong>
+                </p>
+
+                <p>
+                    <code id="report-reference"></code>
+                </p>
+
+                <p>
+                    Keep this fictional reference for training purposes.
+                </p>
+            </div>
+
+            <div class="modal-footer">
+                <button
+                        type="button"
+                        class="btn btn-danger"
+                        data-bs-dismiss="modal"
+                >
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>
+        Frontend portfolio demonstration.
+    </p>
+
+    <p>
+        This is an unofficial fan project created for educational
+        and portfolio purposes. It is not affiliated with or
+        endorsed by the BBC.
+    </p>
+
+    <p>
+        Doctor Who, UNIT and related concepts belong to their
+        respective rights holders.
+    </p>
+</footer>
+</body>
+</html>
