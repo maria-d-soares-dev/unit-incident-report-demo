@@ -17,31 +17,35 @@ The public version is a static frontend demonstration hosted with GitHub Pages.
 
 ### Incident Report Form: Dark Theme
 
-![UNIT incident report form in dark theme](assets/dark-theme.png)
+assets/dark-theme.png
 
 ### Incident Report Form: Light Theme
 
-![UNIT incident report form in light theme](assets/light-theme.png)
+assets/light-theme.png
 
 ### Responsive Mobile View
 
-![UNIT incident report form on a mobile screen](assets/mobile-view.png)
+assets/mobile-view.png
 
 ### Automated Threat Assessment
 
-![UNIT automated threat assessment](assets/threat-assessment.png)
+assets/threat-assessment.png
 
 ### Report Review
 
-![UNIT report review modal](assets/report-review.png)
+assets/report-review.png
 
 ### Simulated Report Reference
 
-![UNIT simulated report reference](assets/report-reference-code.png)
+assets/report-reference-code.png
 
 ### Full-Stack Incident Dashboard
 
-![UNIT local incident dashboard](assets/incident
+assets/incident-dashboard.png
+
+> The incident dashboard belongs to the private local full-stack version,
+> which uses PHP and PostgreSQL. The public GitHub Pages deployment contains
+> only the interactive frontend demonstration.
 
 ## Frontend Features
 
@@ -149,38 +153,6 @@ The full-stack version includes:
 
 The backend source code, database credentials and stored report data are intentionally excluded from this public repository.
 
-## Full-Stack Architecture
-
-The private complete version follows this request flow:
-
-```text
-HTML form
-    ↓
-JavaScript validation and review
-    ↓
-PHP JSON endpoint
-    ↓
-Server-side validation and IP rate limiting
-    ↓
-PostgreSQL database
-    ↓
-Searchable incident dashboard
-```
-
-The public GitHub Pages version replaces the PHP request with a safe browser-only simulation.
-
-## Project Structure
-
-```text
-unit-incident-report-demo/
-├── scripts/
-│   └── main.js
-├── styles/
-│   └── style.css
-├── .gitignore
-├── index.html
-└── README.md
-```
 
 ### Main Files
 
