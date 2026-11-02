@@ -12,7 +12,6 @@ The public version is a static frontend demonstration hosted with GitHub Pages.
 
 > The public demonstration does not transmit or permanently store completed reports. All transmission behavior is simulated in the browser.
 
-
 ## Preview
 
 ### Incident Report Form: Dark Theme
@@ -46,6 +45,7 @@ assets/incident-dashboard.png
 > The incident dashboard belongs to the private local full-stack version,
 > which uses PHP and PostgreSQL. The public GitHub Pages deployment contains
 > only the interactive frontend demonstration.
+
 
 ## Frontend Features
 
