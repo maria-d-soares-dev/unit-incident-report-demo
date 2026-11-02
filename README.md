@@ -16,31 +16,31 @@ The public version is a static frontend demonstration hosted with GitHub Pages.
 
 ### Incident Report Form: Dark Theme
 
-assets/dark-theme.png
+![UNIT incident report form in dark theme](assets/dark-theme.png)
 
 ### Incident Report Form: Light Theme
 
-assets/light-theme.png
+![UNIT incident report form in light theme](assets/light-theme.png)
 
 ### Responsive Mobile View
 
-assets/mobile-view.png
+![UNIT incident report form on a mobile screen](assets/mobile-view.png)
 
 ### Automated Threat Assessment
 
-assets/threat-assessment.png
+![UNIT automated threat assessment](assets/threat-assessment.png)
 
 ### Report Review
 
-assets/report-review.png
+![UNIT report review modal](assets/report-review.png)
 
 ### Simulated Report Reference
 
-assets/report-reference-code.png
+![UNIT simulated report reference](assets/report-reference-code.png)
 
 ### Full-Stack Incident Dashboard
 
-assets/incident-dashboard.png
+![UNIT local incident dashboard](assets/incident-dashboard.png)
 
 > The incident dashboard belongs to the private local full-stack version,
 > which uses PHP and PostgreSQL. The public GitHub Pages deployment contains
